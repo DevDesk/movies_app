@@ -1,0 +1,43 @@
+h1 {
+	color: black;
+	font-family: 'Playfair Display', serif;
+	font-weight: 900;
+}
+
+h2 {
+	color: black;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+}
+
+h3 {
+	color: black;
+	font-family: 'Playfair Display', serif;
+	font-weight: 500;
+}
+
+em {
+	font-style: bold;
+}
+
+body {
+	margin-left:40px;
+	margin-right:40px;
+	margin-top:20px;
+	margin-bottom:20px;
+	background-color: #EADFD2;
+	font-size: large;
+}
+
+#navigation {
+	text-align: right;
+	word-spacing: 5px;
+}
+
+td {
+    width: 1%;
+    padding: 20px;
+    white-space: nowrap;
+    background-color: #ccc;
+    color: #900;
+}
