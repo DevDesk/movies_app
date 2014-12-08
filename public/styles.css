@@ -20,11 +20,14 @@ em {
 	font-style: bold;
 }
 
+#watch {
+width: auto;
+}
+
 body {
 	margin-left:40px;
 	margin-right:40px;
-	margin-top:20px;
-	margin-bottom:20px;
+
 	background-color: #EADFD2;
 	font-size: large;
 }
@@ -34,9 +37,26 @@ body {
 	word-spacing: 5px;
 }
 
+.home {
+	height: 100%;
+	background: url('img/filmTreeTransparent.png') no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	padding-top: 5%;
+  	padding-left: 5%;
+  	margin-top: 0px;
+  	margin-bottom: 0px;
+}
+
+html, body {
+  height:100%;
+}
+
 td {
-    width: 1%;
-    padding: 20px;
+    width: 100%;
+    padding: 5px;
     white-space: nowrap;
     background-color: #ccc;
     color: #900;

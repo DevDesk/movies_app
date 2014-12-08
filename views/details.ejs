@@ -5,6 +5,7 @@
 <table cellpadding="3" class="myTable" style="text-align:center">
         <tr>
 	<td><a href="/">Search Another</a></td>
+	<td><a href="/WatchList">View Watch List</a><td>
 	<td><a href="javascript:history.back()">Previous Page</a></td>
 	<br>
 	</tr>
@@ -15,6 +16,14 @@
 <h1> <%=Title%></h1>
 <h2> <%=Year%></h2>
 <br>
+	<form action="/added" method="post">
+		<div>
+			<input type="hidden" name="title" value="<%=Title%>">
+			<input type="hidden" name="year" value="<%=Year%>">
+			<input type="hidden" name="imdbID" value="<%=imdbID%>">
+			<input type="submit" value="Add To Watch List">
+		</div>
+	</form>
 </div>
 </div>
 

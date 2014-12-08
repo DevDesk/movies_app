@@ -2,13 +2,20 @@ var express = require('express');
 var request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
+var methodOverride = require('method-override');
+
+
+var db = require("./models/index.js");
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
 
 // app.set is going to be used for setting app
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/public'));
 
-var moviesDB = []
+// var moviesDB = []
 
 app.get("/", function(req, res) {	
 	res.render("search");
@@ -21,8 +28,8 @@ app.get("/results", function(req, res){
       var stuff = JSON.parse(body);
       // console.log(stuff["Search"]);
       // res.render("moviePage", stuff)
-      moviesDB.push(stuff["Search"]);
-      console.log(moviesDB);
+      // moviesDB.push(stuff["Search"]);
+      // console.log(moviesDB);
       res.render("results", stuff);
     } else {
       // res.render("errorPage")
@@ -34,6 +41,42 @@ app.get("/results", function(req, res){
 	// console.log(searchURL);
 
 });
+
+// app.get("/addToWatchList", function(req, res) {
+//   var
+// })
+app.post("/added", function(req, res){
+  // res.send(req.body);
+  db.Movie.findOrCreate({where: {title: req.body.title, year: req.body.year, imdbID: req.body.imdbID}}).done(function(err, data) {
+    // console.log(err);
+          // res.send(req.headers.host)
+      res.render("added");
+      // console.log(data);
+  });
+});
+
+app.delete("/deleted", function(req, res) {
+  db.Movie.find({ where: {imdbID: req.body.imdbID2}}).then(function(del){
+    del.destroy().success(function(){
+      res.redirect("/WatchList")
+      // res.send(req.body)
+      // res.render("deleted",{"title":imbdID})
+    });
+  });
+});
+
+//try imdbID: req.query.params
+
+/*db.User.find({ where: { first_name: 'Anil' } }).then(function(user){
+  user.destroy().success(function() {})
+})*/
+
+app.get("/watchList", function(req, res) {
+  var data = db.Movie.findAll().done(function(err, data) {
+    // res.send({"movies":data});
+    res.render("watchList",{"movies": data});
+  })
+})
 
 app.get("/details/:id", function(req, res) {
 	var index = req.params.id;
@@ -51,4 +94,7 @@ app.get("/details/:id", function(req, res) {
     }
   })
 });
+
+
+
 app.listen(3000);

@@ -1,0 +1,37 @@
+<% include header %>
+
+<div class="container-fluid">
+	<div class="row" id="navigation">
+	<table cellpadding="3" class="table myTable" style="text-align:center">
+        <tr>
+			<td><a href="/">Search Another</a></td>
+			<td><a href="/WatchList">View Watch List</a><td>
+			<td><a href="javascript:history.back()">Previous Page</a></td>
+			<br>
+		</tr>
+	</table>
+	</div>
+		<h1> Behold  ...your Watch List! </h1>
+		<br>
+
+			<% for (var i = 0; i < movies.length; i++) { %>
+				<table class="table table-hover" id="watch">
+				<tbody>
+				<ol>
+					<td><li><a href="/details/<%= movies[i].imdbID %>"><%= movies[i].title%></a></li></td>
+					<td><%= movies[i].year%></td>
+					<td><form method="POST" action="/deleted?_method=DELETE">
+							<input type="hidden" value="<%= movies[i].imdbID%>" name="imdbID2" >
+							<button type="submit" class="btn btn-default">Remove from List</button>
+						</form></td>
+				</ol>
+				</tbody>
+				</table>
+				
+			<%}%>
+
+
+	</div>
+</div>
+
+<% include footer %>

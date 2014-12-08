@@ -1,0 +1,19 @@
+{
+  "development": {
+    "database": "moviesDb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "moviesDb_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "moviesDb_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
