@@ -1,37 +1,28 @@
 <% include header %>
-
 <div class="container-fluid">
 	<div class="row" id="navigation">
-	<table cellpadding="3" class="table myTable" style="text-align:center">
-        <tr>
-			<td><a href="/">Search Another</a></td>
-			<td><a href="/WatchList">View Watch List</a><td>
-			<td><a href="javascript:history.back()">Previous Page</a></td>
-			<br>
-		</tr>
-	</table>
+		<table cellpadding="3" class="table myTable" style="text-align:center">
+	        <tr>
+				<td><a href="/">Search Another</a></td>
+				<td><a href="/WatchList">View Watch List</a><td>
+				<td><a href="javascript:history.back()">Previous Page</a></td>
+			</tr>
+		</table>
 	</div>
-		<h1> Behold  ...your Watch List! </h1>
-		<br>
-		<table class="table table-hover" id="watch">
-			<tbody>
+	<h1> Behold  ...your Watch List! </h1>
+	<table class="table table-hover" id="watch">
+		<tbody>
 			<% for (var i = 0; i < movies.length; i++) { %>
 				<tr>
-				
 					<td><%= movies.count=i+1%></td>
 					<td><a href="/details/<%= movies[i].imdbID %>"><%= movies[i].title%></a></td>
 					<td><%= movies[i].year%></td>
 					<td>
-							<button data-id="<%= movies[i].id %>" class="btn btn-default ajaxDelete">Remove from List</button>
+						<button data-id="<%= movies[i].id %>" class="btn btn-default ajaxDelete">Remove from List</button>
 					</td>
-	
 				</tr>
-				
 			<%}%>
 		</tbody>
-		</table>
-
-	</div>
+	</table>
 </div>
-
 <% include footer %>

@@ -1,34 +1,32 @@
 
 <% include header %>
 <div class="container-fluid">
-<div class="row" id="navigation">
-<table cellpadding="3" class="myTable" style="text-align:center">
-        <tr>
-	<td><a href="/">Search Another</a></td>
-	<td><a href="/WatchList">View Watch List</a><td>
-	<td><a href="javascript:history.back()">Previous Page</a></td>
-	<br>
-	</tr>
-	</table>
-</div>
+	<div class="row" id="navigation">
+		<table cellpadding="3" class="myTable" style="text-align:center">
+        	<tr>
+				<td><a href="/">Search Another</a></td>
+				<td><a href="/WatchList">View Watch List</a><td>
+				<td><a href="javascript:history.back()">Previous Page</a></td>
+			</tr>
+		</table>
+	</div>
 
-<div class="row">
-<h1> <%=Title%></h1>
-<h2> <%=Year%></h2>
-<br>
-	<form action="/added" method="post">
-		<div>
-			<input type="hidden" name="title" value="<%=Title%>">
-			<input type="hidden" name="year" value="<%=Year%>">
-			<input type="hidden" name="imdbID" value="<%=imdbID%>">
-			<input type="submit" value="Add To Watch List">
-		</div>
-	</form>
-</div>
-</div>
+	<div class="row">
+		<h1> <%=Title%></h1>
+		<h2> <%=Year%></h2>
+		<br>
+			<form action="/added" method="post">
+				<div>
+					<input type="hidden" name="title" value="<%=Title%>">
+					<input type="hidden" name="year" value="<%=Year%>">
+					<input type="hidden" name="imdbID" value="<%=imdbID%>">
+					<input type="submit" value="Add To Watch List">
+				</div>
+			</form>
+	</div>
 
-<div class="row">
-	
+	<div class="row">
+		
 		<%if(Poster==="N/A"){%>
 			<%}else {%> 
 			<div class="col-md-4 col-sm-4" id="poster-column">
@@ -36,106 +34,105 @@
 					<img src="<%=Poster%>" alt="" class="img-responsive img-rounded"><br>
 				</div>
 			</div>	
-			<%}%>
-	
+		<%}%>
+		
 
-	<div class="col-md-8 col-sm-8" id="description">
-		<div class="row">
-			<div class="col-md-4 col-sm-4">
-				<%if(Rated==="N/A"){%>
+		<div class="col-md-8 col-sm-8" id="description">
+			<div class="row">
+				<div class="col-md-4 col-sm-4">
+					<%if(Rated==="N/A"){%>
+						<%}else {%> 
+							<b><i>Rated:</i></b> <%=Rated%> <br> 
+						<%}%>
+				</div>
+				<div class="col-md-8 col-sm-8">
+					<%if(Runtime==="N/A"){%>
+						<%}else {%> 
+							<b><i>Runtime:</i></b> <%=Runtime%><br>
+						<%}%>
+
+					<%if(Genre==="N/A"){%>
+						<%}else {%> 
+							<b><i>Genre:</i></b> <%=Genre%><br>
+						<%}%>
+				</div>
+			</div>
+				<br>
+			<div class="row">
+				<%if(Director==="N/A"){%>
 					<%}else {%> 
-						<b><i>Rated:</i></b> <%=Rated%> <br> 
+						<b><i>Director:</i></b> <%=Director%><br>
+					<%}%>
+
+				<%if(Actors==="N/A"){%>
+					<%}else {%> 
+						<b><i>Actors:</i></b> <%=Actors%><br>
+					<%}%>
+
+				<%if(Writer==="N/A"){%>
+					<%}else {%> 
+						<b><i>Writer:</i></b> <%=Writer%><br>
+					<%}%>
+					
+				<%if(Awards==="N/A"){%>
+					<%}else {%> 
+						<b><i>Awards:</i></b> <%=Awards%><br>
 					<%}%>
 			</div>
-			<div class="col-md-8 col-sm-8">
-				<%if(Runtime==="N/A"){%>
+				<br>
+			<div class="row">
+				<%if(Plot==="N/A"){%>
 					<%}else {%> 
-						<b><i>Runtime:</i></b> <%=Runtime%><br>
+						<b><i>Plot:</i></b> <%=Plot%><br>
 					<%}%>
 
-				<%if(Genre==="N/A"){%>
-					<%}else {%> 
-						<b><i>Genre:</i></b> <%=Genre%><br>
-					<%}%>
 			</div>
-		</div>
-		<br>
-		<div class="row">
-			<%if(Director==="N/A"){%>
-				<%}else {%> 
-					<b><i>Director:</i></b> <%=Director%><br>
-				<%}%>
+				<br>
+			<div class="row">
+				<div class="col-md-6 col-sm-6 text-left" text-align:"left">
+					<%if(Language==="N/A"){%>
+						<%}else {%> 
+							<b><i>Language:</i></b> <%=Language%><br>
+						<%}%>
 
-			<%if(Actors==="N/A"){%>
-				<%}else {%> 
-					<b><i>Actors:</i></b> <%=Actors%><br>
-				<%}%>
+					<%if(Country==="N/A"){%>
+						<%}else {%> 
+							<b><i>Country:</i></b> <%=Country%><br>
+						<%}%>
 
-			<%if(Writer==="N/A"){%>
-				<%}else {%> 
-					<b><i>Writer:</i></b> <%=Writer%><br>
-				<%}%>
-				
-			<%if(Awards==="N/A"){%>
-				<%}else {%> 
-					<b><i>Awards:</i></b> <%=Awards%><br>
-				<%}%>
-		</div>
-		<br>
-		<div class="row">
-			<%if(Plot==="N/A"){%>
-				<%}else {%> 
-					<b><i>Plot:</i></b> <%=Plot%><br>
-				<%}%>
+					<%if(Released==="N/A"){%>
+						<%}else {%> 
+							<b><i>Released:</i></b> <%=Released%> <br>
+						<%}%>
 
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-md-6 col-sm-6 text-left" text-align:"left">
-				<%if(Language==="N/A"){%>
-					<%}else {%> 
-						<b><i>Language:</i></b> <%=Language%><br>
-					<%}%>
+					<%if(Type==="N/A"){%>
+						<%}else {%> 
+							<b><i>Type:</i></b> <%=Type%><br>
+						<%}%>
+				</div>
+				<div class="col-md-6 col-sm-6 text-left">
+					<%if(Metascore==="N/A"){%>
+						<%}else {%> 
+							<b><i>Metascore:</i></b> <%=Metascore%><br>
+						<%}%>
 
-				<%if(Country==="N/A"){%>
-					<%}else {%> 
-						<b><i>Country:</i></b> <%=Country%><br>
-					<%}%>
+					<%if(imdbRating==="N/A"){%>
+						<%}else {%> 
+							<b><i>imdb Rating:</i></b> <%=imdbRating%><br>
+						<%}%>
 
-				<%if(Released==="N/A"){%>
-					<%}else {%> 
-						<b><i>Released:</i></b> <%=Released%> <br>
-					<%}%>
+					<%if(imdbVotes==="N/A"){%>
+						<%}else {%> 
+							<b><i>imdb Votes:</i></b> <%=imdbVotes%><br>
+						<%}%>
 
-				<%if(Type==="N/A"){%>
-					<%}else {%> 
-						<b><i>Type:</i></b> <%=Type%><br>
-					<%}%>
-			</div>
-			<div class="col-md-6 col-sm-6 text-left">
-				<%if(Metascore==="N/A"){%>
-					<%}else {%> 
-						<b><i>Metascore:</i></b> <%=Metascore%><br>
-					<%}%>
-
-				<%if(imdbRating==="N/A"){%>
-					<%}else {%> 
-						<b><i>imdb Rating:</i></b> <%=imdbRating%><br>
-					<%}%>
-
-				<%if(imdbVotes==="N/A"){%>
-					<%}else {%> 
-						<b><i>imdb Votes:</i></b> <%=imdbVotes%><br>
-					<%}%>
-
-				<%if(imdbID==="N/A"){%>
-					<%}else {%> 
-						<b><i>imdb ID:</i></b> <%=imdbID%><br>
-					<%}%>
+					<%if(imdbID==="N/A"){%>
+						<%}else {%> 
+							<b><i>imdb ID:</i></b> <%=imdbID%><br>
+						<%}%>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-</div>
 </div>
 <% include footer %>
