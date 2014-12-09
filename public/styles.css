@@ -50,6 +50,10 @@ body {
   	margin-bottom: 0px;
 }
 
+.movieQuery {
+	padding: 0 0 0 7px
+}
+
 html, body {
   height:100%;
 }
@@ -60,4 +64,38 @@ td {
     white-space: nowrap;
     background-color: #ccc;
     color: #900;
+}
+
+.homePageContent {
+	width: 100%;
+}
+
+@media screen and (max-width: 1075px) {
+	.homePageContent {
+		width: 450px;
+	}
+}
+
+@media screen and (max-width: 925px) {
+	.homePageContent {
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 875px) {
+	.homePageContent {
+		width: 275px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.homePageContent {
+		width: 200px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.homePageContent {
+		width: 80px;
+	}
 }

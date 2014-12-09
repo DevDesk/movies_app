@@ -13,23 +13,24 @@
 	</div>
 		<h1> Behold  ...your Watch List! </h1>
 		<br>
-
+		<table class="table table-hover" id="watch">
+			<tbody>
 			<% for (var i = 0; i < movies.length; i++) { %>
-				<table class="table table-hover" id="watch">
-				<tbody>
-				<ol>
-					<td><li><a href="/details/<%= movies[i].imdbID %>"><%= movies[i].title%></a></li></td>
+				<tr>
+				
+					<td><%= movies.count=i+1%></td>
+					<td><a href="/details/<%= movies[i].imdbID %>"><%= movies[i].title%></a></td>
 					<td><%= movies[i].year%></td>
-					<td><form method="POST" action="/deleted?_method=DELETE">
-							<input type="hidden" value="<%= movies[i].imdbID%>" name="imdbID2" >
-							<button type="submit" class="btn btn-default">Remove from List</button>
-						</form></td>
-				</ol>
-				</tbody>
-				</table>
+					<td>
+						
+							<button data-id="<%= movies[i].id %>" class="btn btn-default ajaxDelete">Remove from List</button>
+					</td>
+	
+				</tr>
 				
 			<%}%>
-
+		</tbody>
+		</table>
 
 	</div>
 </div>
