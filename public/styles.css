@@ -16,20 +16,31 @@ h3 {
 	font-weight: 500;
 }
 
+body {
+	margin-left:40px;
+	margin-right:40px;
+	background-color: #EADFD2;
+	font-size: large;
+}
+
+html, body {
+  height:100%;
+}
+
+td {
+    width: 100%;
+    padding: 5px;
+    white-space: nowrap;
+    background-color: #ccc;
+    color: #900;
+}
+
 em {
 	font-style: bold;
 }
 
 #watch {
 width: auto;
-}
-
-body {
-	margin-left:40px;
-	margin-right:40px;
-
-	background-color: #EADFD2;
-	font-size: large;
 }
 
 #navigation {
@@ -54,17 +65,6 @@ body {
 	padding: 0 0 0 7px
 }
 
-html, body {
-  height:100%;
-}
-
-td {
-    width: 100%;
-    padding: 5px;
-    white-space: nowrap;
-    background-color: #ccc;
-    color: #900;
-}
 
 .homePageContent {
 	width: 100%;
