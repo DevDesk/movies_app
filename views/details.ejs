@@ -3,14 +3,11 @@
 		<h1> <%=Title%></h1>
 		<h2> <%=Year%></h2>
 		<br>
-			<form action="/added" method="post">
-				<div>
-					<input type="hidden" name="title" value="<%=Title%>">
-					<input type="hidden" name="year" value="<%=Year%>">
-					<input type="hidden" name="imdbID" value="<%=imdbID%>">
-					<input type="submit" value="Add To Watch List">
-				</div>
-			</form>
+		<%if(wasFound===false) {%>
+			<button type="button" class="btn btn-primary btn-default addButton" data-title="<%= Title%>" data-imdbid="<%=imdbID%>" data-year="<%=Year%>">Add to Watch List</button>
+			<%} else {%>
+			<button type="button" class="btn btn-default" disabled>Already in Watch List</button>
+		<%}%>
 	</div>
 
 	<div class="row">
