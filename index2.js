@@ -5,7 +5,7 @@ app.get("/details/:id", function(req, res) {
     request(searchURL, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var movieFullObject = JSON.parse(body);
-        db.Movie.count({ where: {imdbCode: movieFullObject.imdbID}}).then(function(foundItemCount){
+        db.movie.count({ where: {imdbCode: movieFullObject.imdbID}}).then(function(foundItemCount){
           var wasFound = foundItemCount > 0;
           // var locals = 
             console.log(foundItemCount);

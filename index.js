@@ -30,26 +30,26 @@ app.get("/results", function(req, res){
 
 
 // app.post("/added", function(req, res){
-//   db.Movie.findOrCreate({where: {title: req.body.title, year: req.body.year, imdbID: req.body.imdbID}}).done(function(err, data) {
+//   db.movie.findOrCreate({where: {title: req.body.title, year: req.body.year, imdbID: req.body.imdbID}}).done(function(err, data) {
 //     res.render("added");
 //   });
 // });
 
 app.post("/added", function(req, res) {
-  db.Movie.findOrCreate({where: req.body}).spread(function(data, created){
+  db.movie.findOrCreate({where: req.body}).spread(function(data, created){
     res.send({movie:data, wasCreated:created});
   })
 })
 
 app.get("/watchList", function(req, res) {
-  var data = db.Movie.findAll().done(function(err, data) {
+  var data = db.movie.findAll().done(function(err, data) {
     res.render("watchList",{"movies": data});
   })
 });
 
 
 app.delete("/watchList/:id", function(req, res) {
-  db.Movie.destroy({ where: {id: req.params.id}}).then(function(deleteCount){
+  db.movie.destroy({ where: {id: req.params.id}}).then(function(deleteCount){
     res.send({deleted:deleteCount});
   })
 });
@@ -62,7 +62,7 @@ app.get("/details/:id", function(req, res) {
     request(searchURL, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var movieFullObject = JSON.parse(body);
-        db.Movie.count({ where: {imdbID: movieFullObject.imdbID}}).then(function(foundItemCount){
+        db.movie.count({ where: {imdbID: movieFullObject.imdbID}}).then(function(foundItemCount){
           var wasFound = foundItemCount > 0;
           // var locals = 
           console.log(movieFullObject);
